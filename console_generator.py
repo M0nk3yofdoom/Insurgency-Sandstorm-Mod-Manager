@@ -187,16 +187,16 @@ def generate_command(selected_maps, selected_scenarios, selected_mutators, light
                     break
         if mutator_values:
             mutators_str = ",".join(mutator_values)
-            command_parts.append(f"?game={mutators_str}")
+            command_parts.append(f"?Mutators={mutators_str}")
         else:
             # Fallback to IDs if values not found
             mutators_str = ",".join(selected_mutators)
-            command_parts.append(f"?game={mutators_str}")
+            command_parts.append(f"?Mutators={mutators_str}")
     
     # Join with spaces to get the final command
     command = " ".join(command_parts)
     # Ensure no spaces around the ? characters as requested
-    command = command.replace(" ?Scenario=", "?Scenario=").replace(" ?lighting=", "?lighting=").replace(" ?game=", "?game=")
+    command = command.replace(" ?Scenario=", "?Scenario=").replace(" ?lighting=", "?lighting=").replace(" ?Mutators=", "?Mutators=")
     return command
 
 # HTML template for the application - simplified version
@@ -1013,22 +1013,8 @@ html_template = '''
 </html>
 '''
 
-if __name__ == '__main__':
-    print("Starting Console Command Generator...")
-    
-    # Test database connection with debugging
-    try:
-        print("Testing database connection...")
-        test_mods = api.get_all_mods()
-        print(f"Database connection successful. Found {len(test_mods['Map'])} maps, {len(test_mods['Scenario'])} scenarios, {len(test_mods['Mutator'])} mutators")
-        print(f"Map data: {test_mods['Map']}")
-        print(f"Scenario data: {test_mods['Scenario']}")
-        print(f"Mutator data: {test_mods['Mutator']}")
-    except Exception as e:
-        print(f"Database connection failed: {e}")
-        import traceback
-        traceback.print_exc()
-    
+def start_console_generator():
+    """Start the console generator webview application."""
     # Start the webview window
     print("Creating webview window...")
     try:
@@ -1057,3 +1043,26 @@ if __name__ == '__main__':
         import traceback
         traceback.print_exc()
         exit(1)
+
+def main():
+    """Main entry point for the console generator."""
+    print("Starting Console Command Generator...")
+    
+    # Test database connection with debugging
+    try:
+        print("Testing database connection...")
+        test_mods = api.get_all_mods()
+        print(f"Database connection successful. Found {len(test_mods['Map'])} maps, {len(test_mods['Scenario'])} scenarios, {len(test_mods['Mutator'])} mutators")
+        print(f"Map data: {test_mods['Map']}")
+        print(f"Scenario data: {test_mods['Scenario']}")
+        print(f"Mutator data: {test_mods['Mutator']}")
+    except Exception as e:
+        print(f"Database connection failed: {e}")
+        import traceback
+        traceback.print_exc()
+    
+    # Start the actual application
+    start_console_generator()
+
+if __name__ == "__main__":
+    main()

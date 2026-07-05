@@ -114,6 +114,8 @@ The application expects these files in the same directory:
 
 Both apps are not currently designed to work efficiently, they will have a Slow startup - in most cases just wait.
 
+- **insurgency_manager.py** Last imported tag is not persistent or accurate. Too much of a headache for me at this stage to sort out.
+
 - **console_generator.py** often needs to be restarted multiple times after waiting a bit to pick up the cached object required to populate it.
 
 ## Requirements
@@ -121,3 +123,7 @@ Both apps are not currently designed to work efficiently, they will have a Slow 
 - Python 3.x
 - PyWebView library
 - The game *Insurgency:Sandstorm* with a valid Mod.IO `state.json` file
+
+## AI usage
+
+- This was vibecoded across a week with OpenCode and Qwen3-Coder-12b-GGUF
