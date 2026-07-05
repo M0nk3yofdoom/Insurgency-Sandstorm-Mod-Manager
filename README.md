@@ -8,6 +8,12 @@ Mod.IO stores mods for your game each in a separate folder. You need to locate t
 
 Startup may feel slow - I'm looking at how to make that faster, give it a few seconds.
 
+<img width="1240" height="793" alt="modmanager" src="https://github.com/user-attachments/assets/670da3f3-fe85-4155-8f22-fd0ca4f56a19" />
+<img width="1242" height="791" alt="modmanager2" src="https://github.com/user-attachments/assets/b684ea37-4877-4eb5-89f1-667e5f11b451" />
+<img width="1236" height="787" alt="modmanager1" src="https://github.com/user-attachments/assets/b96d725d-adf4-4d68-b9d6-6bda77a1b9d1" />
+<img width="1183" height="740" alt="consolegenerator" src="https://github.com/user-attachments/assets/ac4ff081-c2be-4b20-a8d4-b249b993d924" />
+
+
 ## Purpose
 
 The application imports mod data from the game's `state.json` file and displays it in a clean, searchable table. Users can:
@@ -127,3 +133,4 @@ Both apps are not currently designed to work efficiently, they will have a Slow 
 ## AI usage
 
 - This was vibecoded across a week with OpenCode and Qwen3-Coder-12b-GGUF
+
